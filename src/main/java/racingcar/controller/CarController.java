@@ -9,17 +9,23 @@ public class CarController {
     private final InputView inputView = new InputView();
     private final OutputView outputView = new OutputView();
 
-    public void run() {
-        inputCarNames();
-    }
 
-    private void inputCarNames() {
+    public void inputCarNames() {
         try {
             carService.insertCar(inputView.readCarNames());
 
         } catch (IllegalArgumentException error) {
             outputView.printError(error);
             inputCarNames();
+        }
+    }
+
+    public Integer inputTryCount() {
+        try {
+            return inputView.readTryCount();
+        } catch (IllegalArgumentException error) {
+            outputView.printError(error);
+            return inputTryCount();
         }
     }
 }
