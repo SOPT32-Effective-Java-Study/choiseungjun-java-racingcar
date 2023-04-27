@@ -4,8 +4,6 @@ import racingcar.service.CarService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
-import java.util.function.Supplier;
-
 public class CarController {
     private final CarService carService = new CarService();
     private final InputView inputView = new InputView();

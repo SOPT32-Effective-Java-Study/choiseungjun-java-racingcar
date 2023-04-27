@@ -19,7 +19,7 @@ public class Car {
 
     // 추가 기능 구현
     private void validateCarNameLength(String name) {
-        if(name.length() > MAX_CAR_NAME_LENGTH) {
+        if (name.length() > MAX_CAR_NAME_LENGTH) {
             throw new IllegalArgumentException(CAR_NAME_LENGTH_ERROR_MESSAGE);
         }
     }
