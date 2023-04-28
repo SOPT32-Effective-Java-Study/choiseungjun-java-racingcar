@@ -25,7 +25,7 @@ public class CarService {
 
     public List<Car> moveCars(List<Car> cars) {
         for (Car car : cars) {
-            car.move(getMovingPosition());
+            car.move();
         }
 
         carRepository.update(cars);
@@ -37,17 +37,6 @@ public class CarService {
         String[] seperatedCarNames = carNames.split(CAR_NAME_SEPARATOR);
 
         return Arrays.asList(seperatedCarNames);
-    }
-
-    private Integer getMovingPosition() {
-        int randomMovingValue = Randoms.pickNumberInRange(MIN_CAR_MOVE_FORWARD_RANDOM_VALUE, MAX_CAR_MOVE_FORWARD_RANDOM_VALUE);
-        Integer movingPosition = 0;
-
-        if (randomMovingValue >= CAR_MOVE_FORWARD_STANDARD) {
-            return 1;
-        }
-
-        return movingPosition;
     }
 
 }
