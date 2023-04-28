@@ -4,7 +4,7 @@ import racingcar.domain.Car;
 
 import java.util.List;
 
-import static racingcar.constant.CarConstant.CAR_MOVE_DISTANCE;
+import static racingcar.constant.CarConstant.CAR_MOVE_DISTANCE_MARK;
 import static racingcar.view.message.ConsoleMessage.*;
 
 public class OutputView {
@@ -58,7 +58,7 @@ public class OutputView {
     private String createDistanceAmountText(int amount) {
         String distance = "";
         for (int i = 0; i < amount; i++) {
-            distance += CAR_MOVE_DISTANCE;
+            distance += CAR_MOVE_DISTANCE_MARK;
         }
 
         return distance;
