@@ -56,11 +56,11 @@ public class OutputView {
     }
 
     private String createDistanceAmountText(int amount) {
-        String distance = "";
+        StringBuilder distance = new StringBuilder();
         for (int i = 0; i < amount; i++) {
-            distance += CAR_MOVE_DISTANCE_MARK;
+            distance.append(CAR_MOVE_DISTANCE_MARK);
         }
 
-        return distance;
+        return distance.toString();
     }
 }
