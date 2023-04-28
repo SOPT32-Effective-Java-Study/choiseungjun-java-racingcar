@@ -17,7 +17,7 @@ public class CarRacing {
     public void run() {
         controller.inputCarNames();
 
-        Integer tryCount = controller.inputTryCount();
+        int tryCount = controller.inputTryCount();
         controller.move(tryCount);
 
         controller.showWinner();

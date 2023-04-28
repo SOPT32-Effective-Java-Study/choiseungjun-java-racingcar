@@ -39,7 +39,7 @@ public class CarController {
         }
     }
 
-    public Integer inputTryCount() {
+    public int inputTryCount() {
         try {
             return inputView.readTryCount();
         } catch (IllegalArgumentException error) {
@@ -48,7 +48,7 @@ public class CarController {
         }
     }
 
-    public void move(Integer tryCount) {
+    public void move(int tryCount) {
         outputView.printTryResultMessage();
         List<Car> cars = carService.findAllCars();
 
@@ -62,13 +62,13 @@ public class CarController {
         List<Car> cars = carService.findAllCars();
         Collections.sort(cars);
 
-        Integer winningPosition = cars.get(0).getPosition();
+        int winningPosition = cars.get(0).getPosition();
         String winnerNames = getWinnerNames(cars, winningPosition);
 
         outputView.printWinners(winnerNames);
     }
 
-    private String getWinnerNames(List<Car> cars, Integer winningPosition) {
+    private String getWinnerNames(List<Car> cars, int winningPosition) {
         StringJoiner winnerJoiner = new StringJoiner(RACING_WINNER_SEPARATOR);
         for (Car car : cars) {
             if (car.getPosition() == winningPosition) {

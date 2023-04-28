@@ -29,7 +29,7 @@ public class Car implements Comparable<Car> {
         return name;
     }
 
-    public Integer getPosition() {
+    public int getPosition() {
         return position;
     }
 
@@ -39,9 +39,9 @@ public class Car implements Comparable<Car> {
         }
     }
 
-    private Integer getMovingPosition() {
+    private int getMovingPosition() {
         int randomMovingValue = Randoms.pickNumberInRange(MIN_CAR_MOVE_FORWARD_RANDOM_VALUE, MAX_CAR_MOVE_FORWARD_RANDOM_VALUE);
-        Integer movingPosition = 0;
+        int movingPosition = 0;
 
         if (randomMovingValue >= CAR_MOVE_FORWARD_STANDARD) {
             return 1;

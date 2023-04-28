@@ -55,7 +55,7 @@ public class OutputView {
         System.out.println(message);
     }
 
-    private String createDistanceAmountText(Integer amount) {
+    private String createDistanceAmountText(int amount) {
         String distance = "";
         for (int i = 0; i < amount; i++) {
             distance += CAR_MOVE_DISTANCE;

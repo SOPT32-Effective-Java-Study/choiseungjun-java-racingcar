@@ -13,7 +13,7 @@ public class InputView {
         return readString();
     }
 
-    public Integer readTryCount() {
+    public int readTryCount() {
         outputView.printInputTryCountMessage();
 
         return readInteger();
@@ -23,7 +23,7 @@ public class InputView {
         return Console.readLine();
     }
 
-    private Integer readInteger() {
+    private int readInteger() {
         return validateNumberFormat(Console.readLine());
     }
 
