@@ -13,7 +13,7 @@ public class Car implements Comparable<Car> {
         this.name = name;
     }
 
-    public static Car create(String name) {
+    public static Car from(String name) {
         return new Car(name);
     }
 

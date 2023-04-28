@@ -15,7 +15,7 @@ public class CarService {
     public void insertCar(String carNames) {
 
         for (String carName : separateCarNames(carNames)) {
-            carRepository.insert(Car.create(carName));
+            carRepository.insert(Car.from(carName));
         }
     }
 
