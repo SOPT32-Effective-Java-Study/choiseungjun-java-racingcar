@@ -7,7 +7,7 @@ import racingcar.repository.CarRepository;
 import java.util.Arrays;
 import java.util.List;
 
-import static racingcar.tool.CarConstantValue.*;
+import static racingcar.constant.CarConstant.*;
 
 public class CarService {
     private final CarRepository carRepository = new CarRepository();
