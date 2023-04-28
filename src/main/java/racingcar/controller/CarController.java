@@ -11,10 +11,22 @@ import java.util.StringJoiner;
 
 import static racingcar.constant.CarConstant.RACING_WINNER_SEPARATOR;
 
+
 public class CarController {
-    private final CarService carService = new CarService();
-    private final InputView inputView = new InputView();
-    private final OutputView outputView = new OutputView();
+    private final CarService carService;
+    private final InputView inputView;
+    private final OutputView outputView;
+
+    private CarController(CarService carService, InputView inputView, OutputView outputView) {
+        this.carService = carService;
+        this.inputView = inputView;
+        this.outputView = outputView;
+    }
+
+    public static CarController of(CarService carService, InputView inputView, OutputView outputView) {
+        return new CarController(carService, inputView, outputView);
+    }
+
 
 
     public void inputCarNames() {
