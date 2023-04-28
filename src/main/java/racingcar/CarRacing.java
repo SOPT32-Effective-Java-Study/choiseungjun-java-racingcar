@@ -14,7 +14,8 @@ public class CarRacing {
         controller.inputCarNames();
 
         Integer tryCount = controller.inputTryCount();
-
         controller.move(tryCount);
+
+        controller.showWinner();
     }
 }

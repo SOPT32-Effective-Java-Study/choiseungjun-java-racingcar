@@ -32,6 +32,11 @@ public class OutputView {
         printEnter();
     }
 
+    public void printWinners(String winnerNames) {
+        System.out.printf(SHOW_RACING_WINNER_MESSAGE, winnerNames);
+        printEnter();
+    }
+
     public void printError(Exception error) {
         println(error.getMessage());
         printEnter();

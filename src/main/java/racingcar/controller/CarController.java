@@ -5,7 +5,12 @@ import racingcar.service.CarService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.StringJoiner;
+
+import static racingcar.domain.CarConstantValue.RACING_WINNER_SEPARATOR;
 
 public class CarController {
     private final CarService carService = new CarService();
@@ -40,6 +45,27 @@ public class CarController {
             List<Car> movedCars = carService.moveCars(cars);
             outputView.printCarsDistance(movedCars);
         }
+    }
+
+    public void showWinner() {
+        List<Car> cars = carService.findAllCars();
+        Collections.sort(cars);
+
+        Integer winningPosition = cars.get(0).getPosition();
+        String winnerNames = getWinnerNames(cars, winningPosition);
+
+        outputView.printWinners(winnerNames);
+    }
+
+    private String getWinnerNames(List<Car> cars, Integer winningPosition) {
+        StringJoiner winnerJoiner = new StringJoiner(RACING_WINNER_SEPARATOR);
+        for (Car car : cars) {
+            if(car.getPosition() == winningPosition) {
+                winnerJoiner.add(car.getName());
+            }
+        }
+
+        return winnerJoiner.toString();
     }
 
 }

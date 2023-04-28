@@ -3,7 +3,7 @@ package racingcar.domain;
 import static racingcar.domain.CarConstantValue.MAX_CAR_NAME_LENGTH;
 import static racingcar.view.message.ErrorMessage.CAR_NAME_LENGTH_ERROR_MESSAGE;
 
-public class Car {
+public class Car implements Comparable<Car>{
     private final String name;
     private int position = 0;
 
@@ -34,5 +34,10 @@ public class Car {
         if (name.length() > MAX_CAR_NAME_LENGTH) {
             throw new IllegalArgumentException(CAR_NAME_LENGTH_ERROR_MESSAGE);
         }
+    }
+
+    @Override
+    public int compareTo(Car c) {
+        return c.getPosition() - this.getPosition();
     }
 }
