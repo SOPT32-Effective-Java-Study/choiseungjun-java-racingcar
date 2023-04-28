@@ -9,7 +9,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.StringJoiner;
 
-import static racingcar.domain.CarConstantValue.RACING_WINNER_SEPARATOR;
+import static racingcar.tool.CarConstantValue.RACING_WINNER_SEPARATOR;
 
 public class CarController {
     private final CarService carService = new CarService();

@@ -4,7 +4,7 @@ import racingcar.domain.Car;
 
 import java.util.List;
 
-import static racingcar.domain.CarConstantValue.CAR_MOVE_DISTANCE;
+import static racingcar.tool.CarConstantValue.CAR_MOVE_DISTANCE;
 import static racingcar.view.message.ConsoleMessage.*;
 
 public class OutputView {
