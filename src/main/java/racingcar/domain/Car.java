@@ -18,6 +18,18 @@ public class Car {
     }
 
     // 추가 기능 구현
+    public void move(int position) {
+        this.position += position;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Integer getPosition() {
+        return position;
+    }
+
     private void validateCarNameLength(String name) {
         if (name.length() > MAX_CAR_NAME_LENGTH) {
             throw new IllegalArgumentException(CAR_NAME_LENGTH_ERROR_MESSAGE);

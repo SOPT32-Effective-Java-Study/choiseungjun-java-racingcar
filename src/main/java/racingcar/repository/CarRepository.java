@@ -6,9 +6,17 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class CarRepository {
-    List<Car> cars = new LinkedList<>();
+    private List<Car> cars = new LinkedList<>();
 
     public void insert(Car car) {
         cars.add(car);
+    }
+
+    public List<Car> findAll() {
+        return cars;
+    }
+
+    public void update(List<Car> cars) {
+        this.cars = cars;
     }
 }

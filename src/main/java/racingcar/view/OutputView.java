@@ -1,7 +1,11 @@
 package racingcar.view;
 
-import static racingcar.view.message.ConsoleMessage.INPUT_CAR_NAMES_MESSAGE;
-import static racingcar.view.message.ConsoleMessage.INPUT_TRY_COUNT_MESSAGE;
+import racingcar.domain.Car;
+
+import java.util.List;
+
+import static racingcar.domain.CarConstantValue.CAR_MOVE_DISTANCE;
+import static racingcar.view.message.ConsoleMessage.*;
 
 public class OutputView {
 
@@ -9,10 +13,32 @@ public class OutputView {
         println(INPUT_CAR_NAMES_MESSAGE);
     }
 
-    public void printInputTryCountMessage() { println(INPUT_TRY_COUNT_MESSAGE);}
+    public void printInputTryCountMessage() {
+        println(INPUT_TRY_COUNT_MESSAGE);
+    }
+
+    public void printTryResultMessage() {
+        printEnter();
+        println(TRY_RESULT_MESSAGE);
+    }
+
+    public void printCarsDistance(List<Car> cars) {
+        for (Car car : cars) {
+            printCarDistance(CAR_DISTANCE_MESSAGE,
+                    car.getName(),
+                    createDistanceAmountText(car.getPosition()));
+        }
+
+        printEnter();
+    }
 
     public void printError(Exception error) {
         println(error.getMessage());
+        printEnter();
+    }
+
+    private void printCarDistance(String text, String carName, String distance) {
+        System.out.printf(text, carName, distance);
         printEnter();
     }
 
@@ -22,5 +48,14 @@ public class OutputView {
 
     private void println(String message) {
         System.out.println(message);
+    }
+
+    private String createDistanceAmountText(Integer amount) {
+        String distance = "";
+        for (int i = 0; i < amount; i++) {
+            distance += CAR_MOVE_DISTANCE;
+        }
+
+        return distance;
     }
 }
