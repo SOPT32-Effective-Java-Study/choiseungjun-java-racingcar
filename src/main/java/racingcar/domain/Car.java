@@ -3,7 +3,7 @@ package racingcar.domain;
 import static racingcar.domain.CarConstantValue.MAX_CAR_NAME_LENGTH;
 import static racingcar.view.message.ErrorMessage.CAR_NAME_LENGTH_ERROR_MESSAGE;
 
-public class Car implements Comparable<Car>{
+public class Car implements Comparable<Car> {
     private final String name;
     private int position = 0;
 

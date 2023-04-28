@@ -22,6 +22,7 @@ public class InputView {
     private String readString() {
         return Console.readLine();
     }
+
     private Integer readInteger() {
         return validateNumberFormat(Console.readLine());
     }

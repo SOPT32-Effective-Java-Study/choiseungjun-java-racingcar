@@ -5,7 +5,6 @@ import racingcar.service.CarService;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.StringJoiner;
@@ -60,7 +59,7 @@ public class CarController {
     private String getWinnerNames(List<Car> cars, Integer winningPosition) {
         StringJoiner winnerJoiner = new StringJoiner(RACING_WINNER_SEPARATOR);
         for (Car car : cars) {
-            if(car.getPosition() == winningPosition) {
+            if (car.getPosition() == winningPosition) {
                 winnerJoiner.add(car.getName());
             }
         }
