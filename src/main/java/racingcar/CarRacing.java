@@ -1,9 +1,6 @@
 package racingcar;
 
 import racingcar.controller.CarController;
-import racingcar.domain.Car;
-
-import java.util.List;
 
 public class CarRacing {
 
@@ -17,7 +14,7 @@ public class CarRacing {
         controller.inputCarNames();
 
         Integer tryCount = controller.inputTryCount();
-        List<Car> cars = controller.findAllCars();
-        controller.move(tryCount, cars);
+
+        controller.move(tryCount);
     }
 }

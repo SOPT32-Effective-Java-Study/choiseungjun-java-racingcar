@@ -32,18 +32,14 @@ public class CarController {
         }
     }
 
-    public List<Car> findAllCars() {
-        List<Car> cars = carService.findAllCars();
-
-        return cars;
-    }
-
-    public void move(Integer tryCount, List<Car> cars) {
+    public void move(Integer tryCount) {
         outputView.printTryResultMessage();
+        List<Car> cars = carService.findAllCars();
 
         for (int i = 0; i < tryCount; i++) {
             List<Car> movedCars = carService.moveCars(cars);
             outputView.printCarsDistance(movedCars);
         }
     }
+
 }
