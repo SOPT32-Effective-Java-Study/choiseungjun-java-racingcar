@@ -4,7 +4,7 @@ import static racingcar.view.message.ErrorMessage.TRY_COUNT_NUMBER_FORMAT_ERROR_
 
 public class Validator {
 
-    public static Integer validateNumberFormat(String input) {
+    public static int validateNumberFormat(String input) {
         try {
             return Integer.parseInt(input);
         } catch (NumberFormatException error) {

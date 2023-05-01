@@ -4,10 +4,18 @@ import racingcar.domain.Car;
 
 import java.util.List;
 
-import static racingcar.constant.CarConstant.CAR_MOVE_DISTANCE;
+import static racingcar.constant.CarConstant.CAR_MOVE_DISTANCE_MARK;
 import static racingcar.view.message.ConsoleMessage.*;
 
 public class OutputView {
+    private static final OutputView outputView = new OutputView();
+
+    private OutputView() {
+    }
+
+    public static OutputView getOutputView() {
+        return outputView;
+    }
 
     public void printInputCarNamesMessage() {
         println(INPUT_CAR_NAMES_MESSAGE);
@@ -55,12 +63,12 @@ public class OutputView {
         System.out.println(message);
     }
 
-    private String createDistanceAmountText(Integer amount) {
-        String distance = "";
+    private String createDistanceAmountText(int amount) {
+        StringBuilder distance = new StringBuilder();
         for (int i = 0; i < amount; i++) {
-            distance += CAR_MOVE_DISTANCE;
+            distance.append(CAR_MOVE_DISTANCE_MARK);
         }
 
-        return distance;
+        return distance.toString();
     }
 }

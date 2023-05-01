@@ -11,10 +11,19 @@ import java.util.StringJoiner;
 
 import static racingcar.constant.CarConstant.RACING_WINNER_SEPARATOR;
 
+
 public class CarController {
-    private final CarService carService = new CarService();
-    private final InputView inputView = new InputView();
-    private final OutputView outputView = new OutputView();
+    private final CarService carService;
+    private final InputView inputView = InputView.getInputView();
+    private final OutputView outputView = OutputView.getOutputView();
+
+    private CarController(CarService carService) {
+        this.carService = carService;
+    }
+
+    public static CarController newInstance(CarService carService) {
+        return new CarController(carService);
+    }
 
 
     public void inputCarNames() {
@@ -27,7 +36,7 @@ public class CarController {
         }
     }
 
-    public Integer inputTryCount() {
+    public int inputTryCount() {
         try {
             return inputView.readTryCount();
         } catch (IllegalArgumentException error) {
@@ -36,12 +45,11 @@ public class CarController {
         }
     }
 
-    public void move(Integer tryCount) {
+    public void move(int tryCount) {
         outputView.printTryResultMessage();
-        List<Car> cars = carService.findAllCars();
 
         for (int i = 0; i < tryCount; i++) {
-            List<Car> movedCars = carService.moveCars(cars);
+            List<Car> movedCars = carService.moveCars();
             outputView.printCarsDistance(movedCars);
         }
     }
@@ -50,13 +58,13 @@ public class CarController {
         List<Car> cars = carService.findAllCars();
         Collections.sort(cars);
 
-        Integer winningPosition = cars.get(0).getPosition();
+        int winningPosition = cars.get(0).getPosition();
         String winnerNames = getWinnerNames(cars, winningPosition);
 
         outputView.printWinners(winnerNames);
     }
 
-    private String getWinnerNames(List<Car> cars, Integer winningPosition) {
+    private String getWinnerNames(List<Car> cars, int winningPosition) {
         StringJoiner winnerJoiner = new StringJoiner(RACING_WINNER_SEPARATOR);
         for (Car car : cars) {
             if (car.getPosition() == winningPosition) {
