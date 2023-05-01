@@ -3,7 +3,6 @@ package racingcar.domain;
 import camp.nextstep.edu.missionutils.Randoms;
 
 import static racingcar.constant.CarConstant.*;
-import static racingcar.constant.CarConstant.CAR_MOVE_FORWARD_STANDARD;
 import static racingcar.view.message.ErrorMessage.CAR_NAME_LENGTH_ERROR_MESSAGE;
 
 public class Car implements Comparable<Car> {
