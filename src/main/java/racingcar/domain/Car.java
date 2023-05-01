@@ -40,10 +40,10 @@ public class Car implements Comparable<Car> {
 
     private int getMovingPosition() {
         int randomMovingValue = Randoms.pickNumberInRange(MIN_CAR_MOVE_FORWARD_RANDOM_VALUE, MAX_CAR_MOVE_FORWARD_RANDOM_VALUE);
-        int movingPosition = 0;
+        int movingPosition = STAY;
 
         if (randomMovingValue >= CAR_MOVE_FORWARD_STANDARD) {
-            return 1;
+            movingPosition = MOVE;
         }
 
         return movingPosition;
