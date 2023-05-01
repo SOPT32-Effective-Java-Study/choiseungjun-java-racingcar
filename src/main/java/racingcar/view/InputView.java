@@ -5,7 +5,15 @@ import camp.nextstep.edu.missionutils.Console;
 import static racingcar.tool.Validator.validateNumberFormat;
 
 public class InputView {
-    private final OutputView outputView = new OutputView();
+    private static final InputView inputView = new InputView();
+    private final OutputView outputView = OutputView.getOutputView();
+
+    private InputView() {
+    }
+
+    public static InputView getInputView() {
+        return inputView;
+    }
 
     public String readCarNames() {
         outputView.printInputCarNamesMessage();

@@ -14,19 +14,16 @@ import static racingcar.constant.CarConstant.RACING_WINNER_SEPARATOR;
 
 public class CarController {
     private final CarService carService;
-    private final InputView inputView;
-    private final OutputView outputView;
+    private final InputView inputView = InputView.getInputView();
+    private final OutputView outputView = OutputView.getOutputView();
 
-    private CarController(CarService carService, InputView inputView, OutputView outputView) {
+    private CarController(CarService carService) {
         this.carService = carService;
-        this.inputView = inputView;
-        this.outputView = outputView;
     }
 
-    public static CarController of(CarService carService, InputView inputView, OutputView outputView) {
-        return new CarController(carService, inputView, outputView);
+    public static CarController newInstance(CarService carService) {
+        return new CarController(carService);
     }
-
 
 
     public void inputCarNames() {
@@ -50,10 +47,9 @@ public class CarController {
 
     public void move(int tryCount) {
         outputView.printTryResultMessage();
-        List<Car> cars = carService.findAllCars();
 
         for (int i = 0; i < tryCount; i++) {
-            List<Car> movedCars = carService.moveCars(cars);
+            List<Car> movedCars = carService.moveCars();
             outputView.printCarsDistance(movedCars);
         }
     }

@@ -8,6 +8,14 @@ import static racingcar.constant.CarConstant.CAR_MOVE_DISTANCE_MARK;
 import static racingcar.view.message.ConsoleMessage.*;
 
 public class OutputView {
+    private static final OutputView outputView = new OutputView();
+
+    private OutputView() {
+    }
+
+    public static OutputView getOutputView() {
+        return outputView;
+    }
 
     public void printInputCarNamesMessage() {
         println(INPUT_CAR_NAMES_MESSAGE);
