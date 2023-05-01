@@ -7,12 +7,13 @@ import static racingcar.view.message.ErrorMessage.CAR_NAME_LENGTH_ERROR_MESSAGE;
 
 public class Car implements Comparable<Car> {
     private final String name;
-    private int position = 0;
+    private int position;
 
 
     private Car(String name) {
         validateCarNameLength(name);
         this.name = name;
+        this.position = 0;
     }
 
     public static Car from(String name) {
