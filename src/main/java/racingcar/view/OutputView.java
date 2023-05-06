@@ -41,7 +41,7 @@ public class OutputView {
     }
 
     public void printWinners(String winnerNames) {
-        System.out.printf(SHOW_RACING_WINNER_MESSAGE, winnerNames);
+        printf(SHOW_RACING_WINNER_MESSAGE, winnerNames);
         printEnter();
     }
 
@@ -51,7 +51,7 @@ public class OutputView {
     }
 
     private void printCarDistance(String text, String carName, String distance) {
-        System.out.printf(text, carName, distance);
+        printf(text, carName, distance);
         printEnter();
     }
 
@@ -61,6 +61,14 @@ public class OutputView {
 
     private <T> void println(T message) {
         System.out.println(message);
+    }
+
+    private <P1, P2> void printf(String text, P1 param1, P2 param2) {
+        System.out.printf(text, param1, param2);
+    }
+
+    private <P> void printf(String text, P param) {
+        System.out.printf(text, param);
     }
 
     private String createDistanceAmountText(int amount) {
