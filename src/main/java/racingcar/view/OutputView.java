@@ -59,7 +59,7 @@ public class OutputView {
         System.out.println();
     }
 
-    private void println(String message) {
+    private <T> void println(T message) {
         System.out.println(message);
     }
 
