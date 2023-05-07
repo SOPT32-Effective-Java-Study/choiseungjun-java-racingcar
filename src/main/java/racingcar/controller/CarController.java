@@ -75,4 +75,13 @@ public class CarController {
         return winnerJoiner.toString();
     }
 
+    public void run() {
+        inputCarNames();
+
+        int tryCount = inputTryCount();
+        move(tryCount);
+
+        showWinner();
+    }
+
 }

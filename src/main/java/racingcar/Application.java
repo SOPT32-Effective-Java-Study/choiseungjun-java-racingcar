@@ -6,7 +6,7 @@ import racingcar.service.CarService;
 public class Application {
     public static void main(String[] args) {
 
-        CarRacing carRacing = CarRacing.from(CarController.newInstance(new CarService()));
-        carRacing.start();
+        CarController controller = CarController.newInstance(new CarService());
+        controller.run();
     }
 }
