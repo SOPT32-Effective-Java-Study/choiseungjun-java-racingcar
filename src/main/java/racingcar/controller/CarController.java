@@ -9,7 +9,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.StringJoiner;
 
-import static racingcar.constant.CarConstant.RACING_WINNER_SEPARATOR;
+import static racingcar.constant.CarConstant.*;
 
 
 public class CarController {
@@ -28,7 +28,7 @@ public class CarController {
 
     public void inputCarNames() {
         try {
-            carService.insertCar(inputView.readCarNames().replace(" ", ""));
+            carService.insertCar(inputView.readCarNames().replace(EMPTY_SPACE, NOT_EMPTY_SPACE));
 
         } catch (IllegalArgumentException error) {
             outputView.printError(error);
@@ -73,6 +73,15 @@ public class CarController {
         }
 
         return winnerJoiner.toString();
+    }
+
+    public void run() {
+        inputCarNames();
+
+        int tryCount = inputTryCount();
+        move(tryCount);
+
+        showWinner();
     }
 
 }
